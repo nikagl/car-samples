@@ -15,10 +15,28 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.gersonlohman.carpropertiesviewer">
 
     <!-- Permissions for accessing VehiclePropertyIds.CURRENT_GEAR. -->
     <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
+
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE"
+        tools:node="remove" />
+
+    <uses-feature
+        android:name="android.hardware.type.automotive"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.portrait"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
 
     <!--
     <uses-permission android:name="android.car.permission.CAR_UX_RESTRICTIONS_CONFIGURATION" />
@@ -33,6 +51,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+
         <activity android:name="com.gersonlohman.carpropertiesviewer.MainActivity">
             <!--
             android:name=".automotive.MainAutomotiveActivity"
@@ -43,6 +62,7 @@
             <meta-data
                 android:name="distractionOptimized"
                 android:value="true" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
